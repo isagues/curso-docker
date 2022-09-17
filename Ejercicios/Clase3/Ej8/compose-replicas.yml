@@ -1,0 +1,21 @@
+version: '3.8' 
+services:
+  backend:
+    image: nicopaez/password-api:2.1.0
+    deploy:
+      mode: replicated
+      replicas: 3
+    expose:
+      - 3000
+
+  lb:
+    image: nginx:1.23.1
+    volumes:
+      - type: bind
+        source: ./lb/replica.conf
+        target: /etc/nginx/nginx.conf
+        read_only: true
+    ports:
+      - 80:80
+    depends_on:
+      - backend
