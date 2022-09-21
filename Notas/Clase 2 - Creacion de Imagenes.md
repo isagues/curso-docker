@@ -1,4 +1,4 @@
-# Clase 2
+# Creacion de Imagenes
 
 Imagen => binario que no cambia.
 

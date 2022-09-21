@@ -1,4 +1,4 @@
-# Clase 3
+# Compose
 
 Todos los contenedores se levantan en una red default (bridge).
 
