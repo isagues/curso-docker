@@ -33,3 +33,12 @@ Se puede hace run multi stage donde primeor compilo con jdk y despues hago el pa
 > build X 
 
 `docker compose` == compose v2.
+
+## Extra
+
+Dejar corriendo el container:
+```conf
+command: "/bin/bash"
+stdin_open: true # docker run -i
+tty: true        # docker run -t
+```
