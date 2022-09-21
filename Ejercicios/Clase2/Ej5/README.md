@@ -29,3 +29,19 @@ TODO:es como expose? yo declaro puntos donde conectarse y la conexion se termina
 ## ONBUILD
 
 Sirve para correr comandos mas adelantes. En particular, es util para imagenes que van a ser usadas como imagenes base. Sirve para correr comandos de los cuales todavia no tenemos toda la informacion. Ej: necesitamos que el usuario copie su codigo en una carpeta y nosotros de ahi queremos moverla a otra.
+
+## ADD vs COPY
+
+COPY hace solo una parte de lo que puede hacer ADD. Conviene usar la herramienta que cumpla con la necesidad con lo minimo. Si alcanza con COPY, COPY.
+
+`COPY --from` es para copiar entre containers en un multi-stage
+copiar
+ADD permite, ademas de copiar, clonar repositorios y copiar-y-extraer archivos tar.gz
+
+https://stackoverflow.com/questions/24958140/what-is-the-difference-between-the-copy-and-add-commands-in-a-dockerfile
+
+## ENTRYPOINT VS CMD
+
+Van de la mano. Siempre estan en juego los dos. ENTRYPOINT es el comendo base y CMD el "argumento" de ENTRYPOINT. Por default ENTRYPOINT es `/bin/sh -c <cmd>`. El comando que se pase en el run o en CMD va a ser agregado en <cmd>. Redefinir el ENPOINT esta bueno cuando tengo un comando base que quiero repetir y modifico la forma de accederlo. Programas de CLI como redis.
+
+https://stackoverflow.com/questions/21553353/what-is-the-difference-between-cmd-and-entrypoint-in-a-dockerfile
