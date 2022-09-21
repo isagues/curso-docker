@@ -1,3 +1,4 @@
 *.jar
 tmp/docker-compose.yml
 tmp/plain-docker.sh
+.markdownlint.json
