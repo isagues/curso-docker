@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: botardo
+  labels:
+    app: botardo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: botardo
+  template:
+    metadata:
+      labels:
+        app: botardo
+    spec:
+      containers:
+      - name: botardo
+        image: nicopaez/telegrambot:0.0.7
+        env:
+          - name: TELEGRAM_TOKEN
+            value: "VALOR DE MI TOKEN SECRETO"
