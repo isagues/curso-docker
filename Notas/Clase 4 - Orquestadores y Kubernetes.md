@@ -88,3 +88,5 @@ Puedo definir variables de entorno en el deployment.
 ## Extra
 
 `winpty kubectl exec -it pingapp -- "bash"`
+
+Para analizar si los pods estan mal `kubectl describe pods`
