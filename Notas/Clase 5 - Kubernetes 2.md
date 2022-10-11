@@ -44,3 +44,7 @@ Probes => formas de que k8s sepa el estado de la aplicacion (healthchecks). Live
 > No usar latest
 > Definir Quotas
 > Definir probes
+
+```bash
+export DEPLOYMENT=deployment.apps/pingapp; kubectl scale $DEPLOYMENT --replicas=0; kubectl scale $DEPLOYMENT --replicas=4;
+```
