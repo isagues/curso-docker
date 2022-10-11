@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pingapp
+  labels:
+    app: pingapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pingapp
+  template:
+    metadata:
+      labels:
+        app: pingapp
+    spec:
+      containers:
+      - name: pingapp
+        image: nicopaez/pingapp:2.1.0
+        ports:
+        - containerPort: 4567
+        envFrom:
+          - configMapRef:
+              name: pingapp-config-env
+        volumeMounts:
+          - name: config-files
+            mountPath: /config
+          - name: secret-file
+            mountPath: /mysecrets
+      volumes:
+        - name: config-files
+          configMap:
+            name: "pingapp-config-files"
+            items:
+            - key: "config.json"
+              path: "config.json"
+        - name: secret-file
+          secret:
+            secretName: pingapp-secret-file
+            items:
+              - key: "secret.json"
+                path: "secret.json"
